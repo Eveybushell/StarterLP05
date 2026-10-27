@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, type SubmitEvent } from "react";
 import type { Todo } from "@/types";
 import { addTodo } from "@/utils/todoUtils";
 import TodoItem from "./TodoItem";
@@ -7,7 +7,7 @@ const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [text, setText] = useState("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setTodos((prev) => addTodo(prev, text));
     setText("");
